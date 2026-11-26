@@ -12,8 +12,28 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
+
 add_executable(GameLeaderboard
   src/main.cpp
+  src/service/RankCalculator.cpp
 )
 
 target_include_directories(GameLeaderboard PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src")
+
+enable_testing()
+
+add_executable(RankCalculatorTest
+    tests/RankCalculatorTest.cpp
+    src/service/RankCalculator.cpp
+)
+
+target_include_directories(RankCalculatorTest
+    PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src"
+)
+
+add_test(NAME RankCalculatorTest
+    COMMAND RankCalculatorTest
+)
