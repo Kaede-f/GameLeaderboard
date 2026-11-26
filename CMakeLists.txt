@@ -37,3 +37,6 @@ target_include_directories(RankCalculatorTest
 add_test(NAME RankCalculatorTest
     COMMAND RankCalculatorTest
 )
+
+# Bound regressions in the INT_MAX season-inheritance cases.
+set_tests_properties(RankCalculatorTest PROPERTIES TIMEOUT 10)
