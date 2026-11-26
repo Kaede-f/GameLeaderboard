@@ -1,0 +1,47 @@
+# IDE caches and local settings
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# CMake build trees and machine-local presets
+/out/
+/build/
+/build-*/
+/cmake-build-*/
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+Makefile
+build.ninja
+rules.ninja
+.ninja_deps
+.ninja_log
+compile_commands.json
+
+# Compiled artifacts and debug symbols
+*.obj
+*.o
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.so.*
+*.dylib
+*.pdb
+*.idb
+*.ilk
+*.pch
+*.exp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
