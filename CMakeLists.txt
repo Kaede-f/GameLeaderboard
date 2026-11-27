@@ -19,6 +19,7 @@ endif()
 add_executable(GameLeaderboard
   src/main.cpp
   src/service/RankCalculator.cpp
+  src/service/RankingEncoder.cpp
 )
 
 target_include_directories(GameLeaderboard PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -40,3 +41,15 @@ add_test(NAME RankCalculatorTest
 
 # Bound regressions in the INT_MAX season-inheritance cases.
 set_tests_properties(RankCalculatorTest PROPERTIES TIMEOUT 10)
+
+add_executable(RankingEncoderTest
+    tests/RankingEncoderTest.cpp
+    src/service/RankingEncoder.cpp
+)
+
+target_include_directories(RankingEncoderTest
+    PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src"
+)
+
+add_test(NAME RankingEncoderTest COMMAND RankingEncoderTest)
+set_tests_properties(RankingEncoderTest PROPERTIES TIMEOUT 10)
